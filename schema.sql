@@ -14,6 +14,6 @@ CREATE TABLE questions (
     question TEXT,
     correct TEXT,
     wrong1 TEXT,
-    wrong2 TEXT
+    wrong2 TEXT,
     wrong3 TEXT
 );
