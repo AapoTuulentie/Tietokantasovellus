@@ -1,0 +1,17 @@
+<title>Who Wants To Be a Millionaire?</title>
+
+<h3></h3>
+
+<form action="/result" method="POST">
+    <h4>{{ question }}</h4>
+    <p>
+    Answer:
+    <p>
+    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
+    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="hidden" name="correct" value="{{ correct }}">
+    <p> 
+    <input type="submit" value="Submit">
+</form>

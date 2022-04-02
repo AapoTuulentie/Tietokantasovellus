@@ -1,0 +1,17 @@
+{% block content %}
+
+<h2>Log in</h2>
+
+<form action="/login" method="post">
+Username: <br><input type="text" name="username">
+<p>
+Password: <br><input type="password" name="password">
+<p>
+<input type="submit" value="Kirjaudu">
+</form>
+If you don't have an account, you can create one <a href="/register">here</a>
+
+<p>
+<a href="/">Go back</a>
+
+{% endblock %}
