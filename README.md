@@ -1,4 +1,4 @@
-# Who-wants-to-be-a-millionaire
+# Who Wants To Be a Millionaire?
 ### Purpose
 
 This application is a web quiz based on the TV-show 'Who Wants To Be a Millionaire?'
