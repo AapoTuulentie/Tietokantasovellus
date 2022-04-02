@@ -7,7 +7,7 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 
 ### Currently
 
-- App can be tested in 
+- App can be tested in [Heroku](https://who-wants-to-be-a-millionair-e.herokuapp.com/)
 - Quiz is working
 - Questions are multiple choice with 4 options
 - Questions are randomized at the moment
