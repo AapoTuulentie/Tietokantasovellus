@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request, redirect
+from random import randint
 import users
 import questions
 
@@ -56,19 +57,24 @@ def logout():
 
 
 
-
-
-
-
-
-
-
-
 @app.route("/quiz")
 def quiz():
 
+    random = 0
     question_data = questions.get_question()
-    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+    random = randint(1, 4)
+
+    if random == 1:
+        return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+    
+    elif random == 2:
+        return render_template("questions2.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+    
+    elif random == 3:
+        return render_template("questions3.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+   
+    elif random == 4:
+        return render_template("questions4.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
 
 @app.route("/result", methods=["POST"])
 def answer():
