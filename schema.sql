@@ -18,6 +18,15 @@ CREATE TABLE questions (
     wrong3 TEXT
 );
 
+CREATE TABLE hard_questions (
+    id SERIAL PRIMARY KEY,
+    question TEXT,
+    correct TEXT,
+    wrong1 TEXT,
+    wrong2 TEXT,
+    wrong3 TEXT
+);
+
 CREATE TABLE highscores (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
