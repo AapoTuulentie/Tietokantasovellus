@@ -17,3 +17,9 @@ CREATE TABLE questions (
     wrong2 TEXT,
     wrong3 TEXT
 );
+
+CREATE TABLE highscores (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    score INTEGER
+);
