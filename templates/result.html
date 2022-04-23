@@ -1,9 +1,23 @@
+{% if answer == correct %}
+<form action = "/quiz" method="POST">
 <p>
-    {% if answer == correct %}
+
     Well done! Your answer is correct!
-    {% else %}
-    Incorrect! The correct answer was {{ correct }}.
-    {% endif %}
+    <p>
+    Money in the bank: {{ amount }}
+    <p>
+    <input type="hidden" name="index" value= "{{ index }}">
+    <input type="submit" name="Next question" value= "Next question">
+</p>
+</form>
+{% else %}
+<p>
+Incorrect! The correct answer was {{ correct }}.
+<p>
+You made {{ amount2 }}
+<p>
+<a href="/">Back to homepage</a>
 </p>
 
-<a href="/quiz">Next question</a>
+
+{% endif %}

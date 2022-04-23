@@ -1,7 +1,10 @@
 <title>Who Wants To Be a Millionaire?</title>
 
-<h3></h3>
+<a href="/">Back to homepage</a>
 
+<h2>{{ amount }} question</h2>
+
+{%if random == 1%}
 <form action="/result" method="POST">
     <h4>{{ question }}</h4>
     <p>
@@ -12,6 +15,72 @@
     <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
     <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
     <input type="hidden" name="correct" value="{{ correct }}">
+    <input type="hidden" name="index" value="{{ index }}">
     <p> 
     <input type="submit" value="Submit">
 </form>
+
+{%elif random == 2%}
+<form action="/result" method="POST">
+    <h4>{{ question }}</h4>
+    <p>
+    Answer:
+    <p>
+    <input type="radio" name="answer" value="{{ correct }}" required> {{ correct }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="hidden" name="correct" value="{{ correct }}">
+    <input type="hidden" name="index" value="{{ index }}">
+    <p> 
+    <input type="submit" value="Submit">
+</form>
+{%elif random == 3%}
+<form action="/result" method="POST">
+    <h4>{{ question }}</h4>
+    <p>
+    Answer:
+    <p>
+    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
+    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="hidden" name="correct" value="{{ correct }}">
+    <input type="hidden" name="index" value="{{ index }}">
+    <p> 
+    <input type="submit" value="Submit">
+</form>
+{%elif random == 4%}
+<form action="/result" method="POST">
+    <h4>{{ question }}</h4>
+    <p>
+    Answer:
+    <p>
+    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
+    <input type="hidden" name="correct" value="{{ correct }}">
+    <input type="hidden" name="index" value="{{ index }}">
+    <p> 
+    <input type="submit" value="Submit">
+</form>
+{% endif %}
+<p>
+<h3>Prize money</h3>
+</p>
+1. 100€ <br>
+2. 300€ <br>
+3. 500€ <br>
+4. 700€ <br>
+5. 1000€ <br>
+6. 2000€ <br>
+7. 3000€ <br>
+8. 5000€ <br>
+9. 7000€ <br>
+10. 10 000€ <br>
+11. 15 000€ <br>
+12. 30 000€ <br>
+13. 60 000€ <br>
+14. 200 000€ <br>
+15. 1 000 000€ <br>

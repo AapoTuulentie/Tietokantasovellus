@@ -4,12 +4,16 @@ CREATE TABLE users (
     password TEXT
 );
 
-CREATE TABLE money (
+CREATE TABLE questions (
     id SERIAL PRIMARY KEY,
-    amount INTEGER
+    question TEXT,
+    correct TEXT,
+    wrong1 TEXT,
+    wrong2 TEXT,
+    wrong3 TEXT
 );
 
-CREATE TABLE questions (
+CREATE TABLE advanced_questions (
     id SERIAL PRIMARY KEY,
     question TEXT,
     correct TEXT,

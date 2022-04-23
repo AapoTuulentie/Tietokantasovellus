@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session
 from random import randint
 import users
 import questions
@@ -57,34 +57,53 @@ def logout():
 
 
 
-@app.route("/quiz")
-def quiz():
+@app.route("/quiz/start")
+def start_quiz():
 
-    random = 0
-    question_data = questions.get_question()
+    session['asked'] = []
     random = randint(1, 4)
+    question_data = questions.get_question()
+    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
+    amount = money[0]
 
-    if random == 1:
-        return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
     
-    elif random == 2:
-        return render_template("questions2.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = 0, money = money, amount = amount)
     
-    elif random == 3:
-        return render_template("questions3.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
-   
-    elif random == 4:
-        return render_template("questions4.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4])
+
 
 @app.route("/result", methods=["POST"])
 def answer():
 
+    index = int(request.form["index"])
+    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
     answer = request.form["answer"].strip()
     correct = request.form["correct"].strip()
+
+    if index == 14:
+
+        return render_template("millionaire.html")
+
+    return render_template("result.html", answer=answer, correct=correct, index = index, amount = money[index], amount2 = money[index - 1])
+
+
+@app.route("/quiz", methods=["POST"])
+def quiz():
+
+    index = int(request.form["index"])
+    index += 1
+    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
+    random = randint(1, 4)
     
-    return render_template("result.html", answer=answer, correct=correct)
+    if 0 <= index <= 4:
+        
+        question_data = questions.get_question()
 
+    if 5 <= index <= 9:
 
-    
+        question_data = questions.get_advanced_question()
 
+    if index >= 10:
 
+        question_data = questions.get_hard_question()
+
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = index, money = money, amount = money[index])
