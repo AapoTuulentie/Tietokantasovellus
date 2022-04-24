@@ -34,5 +34,5 @@ CREATE TABLE hard_questions (
 CREATE TABLE millionaires (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    score INTEGER
+    username INTEGER
 );
