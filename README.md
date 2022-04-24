@@ -16,6 +16,6 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 
 ### In the future
 
-- Highscores (probaby a list of all the users that managed to become millionaires)
+- Highscores (list of users who became millionaires)
 - Website layout
-- 50/50 option for one question
+- 50/50 option 
