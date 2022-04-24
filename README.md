@@ -13,9 +13,10 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 - Questions 1 - 5 are "easy", 6 - 10 "advanced" and 11 - 15 "hard"
 - Same question can not appear in the same session anymore
 - Log in and register should be working now
+- Previous winners are visible 
+- Winners will be added to the list
 
 ### In the future
 
-- Highscores (list of users who became millionaires)
 - Website layout
 - 50/50 option 
