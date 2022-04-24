@@ -12,7 +12,7 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 - Questions are multiple choice with 4 options
 - Questions 1 - 5 are "easy", 6 - 10 "advanced" and 11 - 15 "hard"
 - Same question can not appear in the same session anymore
-- Log in and register should work
+- Log in and register should be working now
 
 ### In the future
 
