@@ -1,1 +1,13 @@
-Congratilations, you're a millionaire!
+{% extends "layout.html" %}
+{% block content %}
+
+<h4>Congratulations! You just won a million euros!</h4> <br>
+<a href="/">Back to homepage</a>
+<p>
+<h3>Millionaires so far:</h3>
+{% for m in millionaires %}
+{{ m[0] }}
+<hr>
+{% endfor %}
+
+{% endblock %}

@@ -91,4 +91,10 @@ You are not logged in <a href="/login">Log in</a>
 14. 200 000€ <br>
 15. 1 000 000€ <br>
 
+<h3>Millionaires so far:</h3>
+{% for m in millionaires %}
+{{ m[0] }}
+<hr>
+{% endfor %}
+
 {% endblock %}

@@ -3,11 +3,13 @@ from flask import render_template, request, redirect, session
 from random import randint
 import users
 import questions
+import stats
 
 @app.route("/")
 def index():
     
     return render_template("index.html")
+
 
 @app.route("/register", methods=["get", "post"])
 def register():
@@ -29,8 +31,7 @@ def register():
         if not users.register(username, password1):
             return render_template("error.html", message = "Registration failed")
         return redirect("/")
-
-        
+   
 
 @app.route("/login", methods=["get", "post"])
 def login():
@@ -46,19 +47,12 @@ def login():
             return render_template("error.html", message="Username or password is incorrect")
         return redirect("/")
 
+
 @app.route("/logout")
 def logout():
     
     users.logout()
     return redirect("/")
-
-
-
-
-
-
-
-
 
 
 @app.route("/quiz/start")
@@ -69,11 +63,11 @@ def start_quiz():
     question_data = questions.get_question()
     money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
     amount = money[0]
+    millionaires = stats.millionaires()
 
     
-    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = 0, money = money, amount = amount)
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = 0, money = money, amount = amount, millionaires = millionaires)
     
-
 
 @app.route("/result", methods=["POST"])
 def answer():
@@ -84,8 +78,13 @@ def answer():
     correct = request.form["correct"].strip()
 
     if index == 14:
-
-        return render_template("millionaire.html")
+            
+        if stats.check_user(session["user_name"]) == False:
+            
+            stats.insert_user(session["user_id"], session["user_name"])        
+        
+        millionaires = stats.millionaires()
+        return render_template("millionaire.html", millionaires = millionaires)
 
     return render_template("result.html", answer=answer, correct=correct, index = index, amount = money[index], amount2 = money[index - 1])
 
@@ -97,6 +96,7 @@ def quiz():
     index += 1
     money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
     random = randint(1, 4)
+    millionaires = stats.millionaires()
     
     if 0 <= index <= 4:
         
@@ -110,4 +110,4 @@ def quiz():
 
         question_data = questions.get_hard_question()
 
-    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = index, money = money, amount = money[index])
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = index, money = money, amount = money[index], millionaires = millionaires)

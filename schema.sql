@@ -31,7 +31,7 @@ CREATE TABLE hard_questions (
     wrong3 TEXT
 );
 
-CREATE TABLE highscores (
+CREATE TABLE millionaires (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
     score INTEGER
