@@ -1,22 +1,21 @@
-<title>Who Wants To Be a Millionaire?</title>
+{% extends "layout.html" %}
+{% block content %}
 <p>
 {% if session.user_id %}
-You're logged in as <b>{{ session.user_name }}</b>. <a href="/logout">Log out</a>
+You are logged in as <b>{{ session.user_name }}</b>. <a href="/logout">Log out</a>
 {% else %}
 You are not logged in <a href="/login">Log in</a>
 {% endif %}
 <p>
 
-<h1>Who Wants To Be a Millionaire?</h1>
-<p>
+
+</p>
 Welcome to the <i>'Who Wants To Be a Millionaire?'</i>-quiz!
 <p>
 The quiz consists of 15 questions. First question is worth 100€ and the last 1 000 000€. Answer them all consecutively to become a (virtual) millionaire! <br>
 <p>
 <h3>Good luck!</h3>
 <p>
-<p>
-<p>
 <a href="/quiz/start">Start quiz</a>
 
- 
+{% endblock %}

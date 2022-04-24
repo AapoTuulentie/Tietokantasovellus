@@ -1,7 +1,14 @@
-<title>Who Wants To Be a Millionaire?</title>
+{% extends "layout.html" %}
+{% block content %}
 
+{% if session.user_id %}
+You are logged in as <b>{{ session.user_name }}</b>. <a href="/logout">Log out</a>
+{% else %}
+You are not logged in <a href="/login">Log in</a>
+{% endif %}
+<p>
 <a href="/">Back to homepage</a>
-
+<p>
 <h2>{{ amount }} question</h2>
 
 {%if random == 1%}
@@ -10,10 +17,10 @@
     <p>
     Answer:
     <p>
-    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
-    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="radio" name="answer" value="wrong" required> <b>A.</b>  {{ wrong2 }}
+    <input type="radio" name="answer" value="{{ correct }}"> <b>B.</b>  {{ correct }}
+    <input type="radio" name="answer" value="wrong"> <b>C.</b>  {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> <b>D.</b>  {{ wrong3 }}
     <input type="hidden" name="correct" value="{{ correct }}">
     <input type="hidden" name="index" value="{{ index }}">
     <p> 
@@ -26,10 +33,10 @@
     <p>
     Answer:
     <p>
-    <input type="radio" name="answer" value="{{ correct }}" required> {{ correct }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong2 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="radio" name="answer" value="{{ correct }}" required> <b>A.</b>  {{ correct }}
+    <input type="radio" name="answer" value="wrong"> <b>B.</b>  {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> <b>C.</b>  {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> <b>D.</b>  {{ wrong3 }}
     <input type="hidden" name="correct" value="{{ correct }}">
     <input type="hidden" name="index" value="{{ index }}">
     <p> 
@@ -41,10 +48,10 @@
     <p>
     Answer:
     <p>
-    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
-    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
+    <input type="radio" name="answer" value="wrong" required> <b>A.</b>  {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> <b>B.</b>  {{ wrong1 }}
+    <input type="radio" name="answer" value="{{ correct }}"> <b>C.</b>  {{ correct }}
+    <input type="radio" name="answer" value="wrong"> <b>D.</b>  {{ wrong3 }}
     <input type="hidden" name="correct" value="{{ correct }}">
     <input type="hidden" name="index" value="{{ index }}">
     <p> 
@@ -56,10 +63,10 @@
     <p>
     Answer:
     <p>
-    <input type="radio" name="answer" value="wrong" required> {{ wrong2 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong1 }}
-    <input type="radio" name="answer" value="wrong"> {{ wrong3 }}
-    <input type="radio" name="answer" value="{{ correct }}"> {{ correct }}
+    <input type="radio" name="answer" value="wrong" required> <b>A.</b>  {{ wrong2 }}
+    <input type="radio" name="answer" value="wrong"> <b>B.</b>  {{ wrong1 }}
+    <input type="radio" name="answer" value="wrong"> <b>C.</b>  {{ wrong3 }}
+    <input type="radio" name="answer" value="{{ correct }}"> <b>D.</b>  {{ correct }}
     <input type="hidden" name="correct" value="{{ correct }}">
     <input type="hidden" name="index" value="{{ index }}">
     <p> 
@@ -67,8 +74,7 @@
 </form>
 {% endif %}
 <p>
-<h3>Prize money</h3>
-</p>
+<p>
 1. 100€ <br>
 2. 300€ <br>
 3. 500€ <br>
@@ -84,3 +90,5 @@
 13. 60 000€ <br>
 14. 200 000€ <br>
 15. 1 000 000€ <br>
+
+{% endblock %}
