@@ -1,7 +1,7 @@
 # Who Wants To Be a Millionaire?
 ### Purpose
 
-This application is a web quiz based on the TV-program 'Who Wants To Be a Millionaire?'
+This application is a web quiz based on the TV-program 'Who Wants To Be a Millionaire?'.
 Player must answer 15 questions correctly in a row to win and become a millionaire. The first question is worth 100€ and the last one 1 000 000€.
 
 
