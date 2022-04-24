@@ -20,3 +20,4 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 
 - Website layout
 - 50/50 option 
+- More questions will be added
