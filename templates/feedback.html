@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/review", method="POST">
+<textarea name="comment" rows="3" cols="40" maxlength="1000" required></textarea>    
+<p>
+<input type="submit" value="Send">
+</p>
+</form>
+
+{% endblock %}

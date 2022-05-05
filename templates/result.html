@@ -13,6 +13,14 @@
     <input type="submit" name="Next question" value= "Next question">
 </p>
 </form>
+{% elif answer != correct and index == 0 %}
+<p>
+Incorrect! The correct answer was {{ correct }}.
+<p>
+You are eliminated! You made <b>0€</b>.
+<p>
+<a href="/">Back to homepage</a>
+<p>
 {% else %}
 <p>
 Incorrect! The correct answer was {{ correct }}.

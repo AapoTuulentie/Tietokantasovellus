@@ -8,14 +8,35 @@ You are not logged in <a href="/login">Log in</a>
 {% endif %}
 <p>
 
-
-</p>
 Welcome to the <i>'Who Wants To Be a Millionaire?'</i>-quiz!
 <p>
 The quiz consists of 15 questions. First question is worth 100€ and the last 1 000 000€. Answer them all consecutively to become a (virtual) millionaire! <br>
 <p>
 <h3>Good luck!</h3>
+<hr>
 <p>
 <a href="/quiz/start">Start quiz</a>
-
+<hr>
+<h3>Feedback</h3>
+<p>
+{% if session.user_id %}
+Write your feedback here: <br>
+<form action="/review", method="post">
+<textarea name="comment" rows="3" cols="40" maxlength="1000" required></textarea>    
+<p>
+<input type="submit" value="Send">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+</p>
+</form>
+</p>
+{% else %}
+Log in and write your own feedback
+{% endif %}
+<hr>
+{% for c in comments %}
+<b>{{ c[0] }}:</b>
+{{ c[1] }}
+<hr>
+{% endfor %}
+<p>
 {% endblock %}

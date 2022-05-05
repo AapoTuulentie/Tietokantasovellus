@@ -9,7 +9,7 @@ def insert_user(user_id, username):
 
 def millionaires():
 
-    millionaires_sql = "SELECT username FROM millionaires"
+    millionaires_sql = "SELECT DISTINCT username FROM millionaires"
     millionaire = db.session.execute(millionaires_sql).fetchall()
     return millionaire
 
