@@ -34,7 +34,7 @@ CREATE TABLE hard_questions (
 CREATE TABLE millionaires (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    username
+    username TEXT
 );
 
 CREATE TABLE feedback (
