@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <p>
+<div class="content">
 {% if session.user_id %}
 You are logged in as <b>{{ session.user_name }}</b>. <a href="/logout">Log out</a>
 {% else %}
@@ -8,7 +9,8 @@ You are not logged in <a href="/login">Log in</a>
 {% endif %}
 <p>
 
-Welcome to the <i>'Who Wants To Be a Millionaire?'</i>-quiz!
+
+<h3>Welcome to the <i>'Who Wants To Be a Millionaire?'</i>-quiz!</h3>
 <p>
 The quiz consists of 15 questions. First question is worth 100€ and the last 1 000 000€. Answer them all consecutively to become a (virtual) millionaire! <br>
 <p>
@@ -17,7 +19,7 @@ The quiz consists of 15 questions. First question is worth 100€ and the last 1
 <p>
 <a href="/quiz/start">Start quiz</a>
 <hr>
-<h3>Feedback</h3>
+<h3>Feedback:</h3>
 <p>
 {% if session.user_id %}
 Write your feedback here: <br>
@@ -36,7 +38,8 @@ Log in and write your own feedback
 {% for c in comments %}
 <b>{{ c[0] }}:</b>
 {{ c[1] }}
-<hr>
+<br>
 {% endfor %}
+</div>
 <p>
 {% endblock %}

@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<div class="content">
 {% if answer == correct %}
 <form action = "/quiz" method="POST">
 <p>
 
     Well done! Your answer is correct!
     <p>
-    Money in the bank: <b>{{ amount }}</b>
+    Money in the bank: <b>{{ amount[0] }}€</b>
     <p>
     <input type="hidden" name="index" value= "{{ index }}">
     <input type="submit" name="Next question" value= "Next question">
@@ -25,12 +26,13 @@ You are eliminated! You made <b>0€</b>.
 <p>
 Incorrect! The correct answer was {{ correct }}.
 <p>
-You are eliminated! You made <b>{{ amount2 }}</b>.
+You are eliminated! You made <b>{{ amount2[0] }}€</b>.
 <p>
 <a href="/">Back to homepage</a>
 </p>
 
 
 {% endif %}
+</div>
 
 {% endblock %}

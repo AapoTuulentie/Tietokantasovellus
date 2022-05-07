@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<div class="content">
 <h4>Congratulations! You just won a million euros!</h4> <br>
+{% if session.user_id %}
+Your username has been added to the list of millionaires! <br>
+{% endif %}
 <a href="/">Back to homepage</a>
 <p>
 <h3>Millionaires so far:</h3>
@@ -9,7 +13,7 @@
 {{ m[0] }}
 <hr>
 {% endfor %}
-
+</div>
 {% endblock %}
 
 

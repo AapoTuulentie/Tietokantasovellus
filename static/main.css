@@ -2,4 +2,42 @@ body {
     margin: auto;
     max-width: 45em;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    background-image: url(/static/money.jpg);
 }
+
+.header-text {
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+hr { 
+    background-color: black;
+    height: 2px;
+    border: 0;
+}
+
+.money {
+    padding: 1em;
+    color: black;
+    font-size: 1em;
+}
+
+.question {
+    color: white;
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: black;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.content {
+    background: beige;
+    border-radius: .5em;
+    padding: 1.5em 2em;
+    font-size: 1.2em;
+}
+

@@ -44,3 +44,7 @@ CREATE TABLE feedback (
     comment TEXT
 );
 
+CREATE TABLE money (
+    id SERIAL PRIMARY KEY,
+    amount INTEGER
+);

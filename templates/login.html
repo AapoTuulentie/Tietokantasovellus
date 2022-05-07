@@ -1,5 +1,7 @@
+{% extends "layout.html" %}
 {% block content %}
 
+<div class="content">
 <h2>Log in</h2>
 
 <form action="/login" method="post">
@@ -13,5 +15,7 @@ If you don't have an account, you can create one <a href="/register">here</a>
 
 <p>
 <a href="/">Go back</a>
+</p>
+</div>
 
 {% endblock %}

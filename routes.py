@@ -5,6 +5,7 @@ import users
 import questions
 import stats
 import feedback
+import money
 
 
 @app.route("/")
@@ -87,19 +88,19 @@ def start_quiz():
     session['asked'] = []
     random = randint(1, 4)
     question_data = questions.get_question()
-    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
-    amount = money[0]
+    amount = ["100"]
     millionaires = stats.millionaires()
 
     
-    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = 0, money = money, amount = amount, millionaires = millionaires)
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = 0, amount = amount, millionaires = millionaires)
     
 
 @app.route("/result", methods=["POST"])
 def answer():
 
     index = int(request.form["index"])
-    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
+    amount = money.get_amount(index + 2)  
+    amount2 = money.get_amount(index + 1)
     answer = request.form["answer"].strip()
     correct = request.form["correct"].strip()
 
@@ -109,7 +110,7 @@ def answer():
         millionaires = stats.millionaires()
         return render_template("millionaire.html", millionaires = millionaires)
         
-    return render_template("result.html", answer=answer, correct=correct, index = index, amount = money[index], amount2 = money[index - 1])
+    return render_template("result.html", answer=answer, correct=correct, index = index, amount = amount, amount2 = amount2)
 
 
 @app.route("/quiz", methods=["POST"])
@@ -117,7 +118,7 @@ def quiz():
 
     index = int(request.form["index"])
     index += 1
-    money = ["100€", "300€", "500€", "700€", "1000€", "2000€", "3000€", "5000€", "7000€", "10 000€", "15 000€", "30 000€", "60 000€", "200 000€", "1 000 000€"]
+    amount = money.get_amount(index + 2)
     random = randint(1, 4)
     millionaires = stats.millionaires()
     
@@ -134,7 +135,7 @@ def quiz():
         question_data = questions.get_hard_question()
 
 
-    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = index, money = money, amount = money[index], millionaires = millionaires)
+    return render_template("questions.html", question = question_data[0], correct = question_data[1], wrong1 = question_data[2], wrong2 = question_data[3], wrong3 = question_data[4], random = random, index = index, amount = amount, millionaires = millionaires)
 
 
 

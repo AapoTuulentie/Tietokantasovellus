@@ -10,6 +10,6 @@ def insert_feedback(user_id, username, comment):
 
 def get_feedback():
 
-    feedback_sql = "SELECT username, comment FROM feedback"
+    feedback_sql = "SELECT username, comment FROM feedback ORDER BY id DESC"
     feedback = db.session.execute(feedback_sql).fetchall()
     return feedback
