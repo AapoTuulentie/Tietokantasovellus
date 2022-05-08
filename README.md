@@ -4,20 +4,10 @@
 This application is a web quiz based on the TV-program 'Who Wants To Be a Millionaire?'.
 Player must answer 15 questions correctly in a row to win and become a millionaire. The first question is worth 100€ and the last one 1 000 000€.
 
-
-### Currently
-
 - App can be tested in [Heroku](https://who-wants-to-be-a-millionair-e.herokuapp.com/)
-- Quiz is working
-- Questions are multiple choice with 4 options
-- Questions 1 - 5 are "easy", 6 - 10 "advanced" and 11 - 15 "hard"
-- Same question can not appear in the same session anymore
-- Log in and register should be working now
-- Previous winners are visible 
-- Winners will be added to the list
-
-### In the future
-
-- Website layout
-- 50/50 option 
-- More questions will be added
+- The app takes random questions from three different difficulties
+- The questions will slowly get harder 
+- User registration and log in 
+- User is needed to play the quiz
+- Users can leave feedback on the frontpage
+- Users will get to the millionaires list if they complete the quiz 
