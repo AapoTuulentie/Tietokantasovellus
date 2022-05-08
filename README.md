@@ -7,6 +7,7 @@ Player must answer 15 questions correctly in a row to win and become a millionai
 - App can be tested in [Heroku](https://who-wants-to-be-a-millionair-e.herokuapp.com/)
 - The app takes random questions from three different difficulties
 - The questions will slowly get harder 
-- User registration and log in, user is needed to play the quiz
+- User registration and log in 
+- User is needed to play the quiz
 - Users can leave feedback on the frontpage
 - Users will get to the millionaires list if they complete the quiz 
