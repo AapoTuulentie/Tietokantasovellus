@@ -88,7 +88,7 @@ def start_quiz():
 
     try:
 
-        session["username"]
+        session["user_name"]
 
     except:
 
