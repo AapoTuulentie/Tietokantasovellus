@@ -14,6 +14,7 @@ def index():
     comments = feedback.get_feedback()
     return render_template("index.html", comments = comments)
 
+
 @app.route("/review", methods=["post"])
 def review():
 
@@ -85,6 +86,14 @@ def logout():
 @app.route("/quiz/start")
 def start_quiz():
 
+    try:
+
+        session["user_name"]
+
+    except:
+
+        return render_template("errors.html", message="You need to log in before playing")
+        
     session['asked'] = []
     random = randint(1, 4)
     question_data = questions.get_question()
