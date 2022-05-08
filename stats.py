@@ -7,11 +7,13 @@ def insert_user(user_id, username):
     db.session.execute(user_sql, {"user_id": user_id, "user_name": username})
     db.session.commit()
 
+
 def millionaires():
 
     millionaires_sql = "SELECT DISTINCT username FROM millionaires"
     millionaire = db.session.execute(millionaires_sql).fetchall()
     return millionaire
+
 
 def check_user(username):
 

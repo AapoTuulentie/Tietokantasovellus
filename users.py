@@ -3,6 +3,7 @@ from db import db
 from flask import abort, request, session
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
 def register(name, password):
 
     hash_value = generate_password_hash(password)
@@ -19,6 +20,7 @@ def register(name, password):
 
     return login(name, password)
 
+
 def login(name, password):
 
     sql = "SELECT password, id FROM users WHERE name=:name"
@@ -33,12 +35,15 @@ def login(name, password):
     session["csrf_token"] = os.urandom(16).hex()
     return True
 
+
 def logout():
     del session["user_id"]
     del session["user_name"]
 
+
 def user_id():
     return session.get("user_id", 0)
+
 
 def check_csrf():
     if session["csrf_token"] != request.form["csrf_token"]:

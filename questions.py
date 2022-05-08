@@ -2,6 +2,7 @@ from random import randint
 from db import db
 from flask import session
 
+
 def get_question():
 
     questions_amount_sql = "SELECT COUNT(question) FROM questions"
@@ -32,6 +33,7 @@ def get_question():
             session['asked'] = asked
             return(question, correct, wrong1, wrong2, wrong3)
 
+
 def get_advanced_question():
 
     questions_amount_sql = "SELECT COUNT(question) FROM advanced_questions"
@@ -61,6 +63,7 @@ def get_advanced_question():
             asked.append(correct)
             session['asked'] = asked
             return(question, correct, wrong1, wrong2, wrong3)
+
 
 def get_hard_question():
 
