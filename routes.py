@@ -88,12 +88,12 @@ def start_quiz():
 
     try:
 
-        session["user_name"]
+        session["username"]
 
     except:
 
         return render_template("errors.html", message="You need to log in before playing")
-        
+
     session['asked'] = []
     random = randint(1, 4)
     question_data = questions.get_question()
