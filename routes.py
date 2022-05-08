@@ -92,7 +92,7 @@ def start_quiz():
 
     except:
 
-        return render_template("errors.html", message="You need to log in before playing")
+        return render_template("error.html", message="You need to log in before playing")
 
     session['asked'] = []
     random = randint(1, 4)
